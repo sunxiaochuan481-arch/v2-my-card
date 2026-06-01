@@ -1,8 +1,9 @@
 // 首页
 import RevealImage from '../components/Media/RevealImage';
+import { getAssetPath } from '../utils/getAssetPath';
 import './Home.css';
 
-const avatarImage = '/avatar/avatar.png';
+const avatarImage = getAssetPath('avatar/avatar.png');
 
 function Home() {
   return (

@@ -1,4 +1,6 @@
 // 视频数据
+import { getAssetPath } from '../utils/getAssetPath';
+
 const videoFolders = [
   {
     id: 'guai',
@@ -26,8 +28,8 @@ export const videoData = videoFolders.map((folder, index) => ({
   id: folder.id,
   title: folder.title,
   description: '',
-  thumbnail: `/videos/${folder.id}/cover.png`,
-  videoUrl: `/videos/${folder.id}/${folder.videoFile}`,
+  thumbnail: getAssetPath(`videos/${folder.id}/cover.png`),
+  videoUrl: getAssetPath(`videos/${folder.id}/${folder.videoFile}`),
   order: index + 1,
 }));
 

@@ -1,5 +1,7 @@
 // 通用的模拟数据
-export const avatarPlaceholder = '/avatar/default-avatar.png';
+import { getAssetPath } from '../utils/getAssetPath';
+
+export const avatarPlaceholder = getAssetPath('avatar/default-avatar.png');
 
 // 通用卡片数据
 export const genericCards = [
