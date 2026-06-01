@@ -1,0 +1,98 @@
+.reviews-page {
+  color: var(--text-primary);
+}
+
+.reviews-grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.review-media-card .media-card-image {
+  aspect-ratio: 3 / 4;
+}
+
+.reviews-music-panel {
+  perspective: 900px;
+}
+
+.reviews-modal-content {
+  display: grid;
+  gap: 18px;
+}
+
+.reviews-modal-heading {
+  margin: 4px 0 0;
+  color: var(--text-primary);
+  font-size: clamp(1.18rem, 2vw, 1.6rem);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.reviews-modal-paragraph {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-md);
+  line-height: 1.85;
+}
+
+.reviews-modal-quote {
+  margin: 2px 0;
+  padding: 18px 20px;
+  color: rgba(226, 239, 231, 0.88);
+  line-height: 1.75;
+  border-left: 2px solid rgba(158, 207, 168, 0.5);
+  border-radius: 0 12px 12px 0;
+  background:
+    linear-gradient(90deg, rgba(132, 188, 145, 0.12), rgba(255, 255, 255, 0.018)),
+    rgba(12, 18, 17, 0.38);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.reviews-modal-media {
+  margin: 2px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(10, 15, 14, 0.6);
+  border: 1px solid rgba(226, 239, 231, 0.08);
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.reviews-modal-media .reveal-image,
+.reviews-modal-media video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.reviews-modal-media video {
+  height: auto;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.reviews-modal-media-image .reveal-image {
+  aspect-ratio: 16 / 10;
+}
+
+.reviews-modal-media figcaption {
+  padding: 10px 14px 12px;
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  background: rgba(5, 9, 8, 0.34);
+}
+
+.reviews-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-top: 20px;
+  padding-top: 16px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(226, 239, 231, 0.08);
+}
+
+.reviews-page audio {
+  display: none;
+}

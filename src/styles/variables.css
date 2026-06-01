@@ -1,0 +1,64 @@
+:root {
+  /* 颜色变量 */
+  --color-primary: #8fbe9b;
+  --color-primary-light: #c3e3ca;
+  --color-primary-dark: #496f50;
+  --color-secondary: #5f7d68;
+  --color-accent: #9a8f76;
+  
+  /* 背景色 */
+  --bg-dark: #070b0d;
+  --bg-card: #101719;
+  --bg-card-hover: #182321;
+  --bg-overlay: rgba(7, 11, 13, 0.88);
+  
+  /* 文字颜色 */
+  --text-primary: #ffffff;
+  --text-secondary: #a9b5ad;
+  --text-muted: #6f7b73;
+  
+  /* 边框颜色 */
+  --border-color: rgba(199, 225, 205, 0.11);
+  --border-color-hover: rgba(199, 225, 205, 0.22);
+  
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* 间距 */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  
+  /* 阴影 */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(143, 190, 155, 0.22);
+  
+  /* 过渡 */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+  
+  /* 字体大小 */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 24px;
+  --font-2xl: 32px;
+  
+  /* z-index 层级 */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 500;
+  --z-tooltip: 600;
+}

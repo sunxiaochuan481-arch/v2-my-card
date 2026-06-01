@@ -1,0 +1,18 @@
+.data-rain-accent {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0.68;
+  mix-blend-mode: screen;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 78%, transparent 100%);
+}
+
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .data-rain-accent {
+    display: none;
+  }
+}

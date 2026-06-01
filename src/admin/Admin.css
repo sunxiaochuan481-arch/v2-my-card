@@ -1,0 +1,222 @@
+/* 管理员登录样式 */
+.admin-login {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-card {
+  background: var(--bg-card);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--border-color);
+}
+
+.admin-login-card h1 {
+  font-size: var(--font-2xl);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* 表单样式 */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-md);
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group input[type="file"] {
+  padding: var(--space-sm);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  margin-top: var(--space-xl);
+}
+
+/* 按钮样式 */
+.btn-primary,
+.btn-secondary {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* 上传器样式 */
+.media-uploader {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.uploader-dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.uploader-dropzone.active {
+  border-color: var(--color-primary);
+  background: rgba(143, 190, 155, 0.1);
+}
+
+.uploader-dropzone p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.uploader-button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.uploader-button:hover {
+  background: var(--color-primary-dark);
+}
+
+.uploader-button input {
+  display: none;
+}
+
+.uploader-files {
+  margin-top: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.uploader-files h4 {
+  font-size: var(--font-md);
+  margin-bottom: var(--space-md);
+}
+
+.uploader-file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.uploader-file-item span:first-child {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uploader-file-size {
+  color: var(--text-muted);
+  font-size: var(--font-xs);
+}
+
+.uploader-file-remove {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploader-file-remove:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+/* 编辑器样式 */
+.content-editor,
+.music-editor {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-editor h2,
+.music-editor h2 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.editor-form {
+  background: var(--bg-card);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+/* 仪表盘内容 */
+.admin-dashboard-content h2 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-md);
+}
+
+.admin-dashboard-content p {
+  color: var(--text-secondary);
+}

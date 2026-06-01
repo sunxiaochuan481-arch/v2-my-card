@@ -1,0 +1,90 @@
+.background-glow-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+  transition: opacity var(--transition-slow);
+}
+
+/* 颜色变体 */
+.glow-primary {
+  background: #496f50;
+}
+
+.glow-secondary {
+  background: #1e332b;
+}
+
+.glow-accent {
+  background: #6c765e;
+}
+
+/* 位置变体 */
+.glow-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.glow-top-left {
+  top: -20%;
+  left: -20%;
+}
+
+.glow-top-right {
+  top: -20%;
+  right: -20%;
+}
+
+.glow-bottom-left {
+  bottom: -20%;
+  left: -20%;
+}
+
+.glow-bottom-right {
+  bottom: -20%;
+  right: -20%;
+}
+
+/* 尺寸变体 */
+.glow-small {
+  width: 300px;
+  height: 300px;
+}
+
+.glow-medium {
+  width: 500px;
+  height: 500px;
+}
+
+.glow-large {
+  width: 800px;
+  height: 800px;
+}
+
+/* 模糊效果 */
+.background-glow.blur {
+  filter: blur(100px);
+}
+
+/* 动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.background-glow-container .background-glow {
+  animation: none;
+}

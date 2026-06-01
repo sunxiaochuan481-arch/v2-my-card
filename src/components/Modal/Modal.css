@@ -1,0 +1,128 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-xl);
+  animation: fadeIn var(--transition-fast) ease;
+}
+
+.modal-container {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: scaleIn var(--transition-normal) ease;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card-hover);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-lg);
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+/* 视频播放样式 */
+.modal-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.modal-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 媒体画廊样式 */
+.modal-gallery {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.modal-gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.modal-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-gallery-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 详情内容样式 */
+.modal-details {
+  margin-top: var(--space-lg);
+}
+
+.modal-description {
+  font-size: var(--font-md);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.modal-meta {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.modal-meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
