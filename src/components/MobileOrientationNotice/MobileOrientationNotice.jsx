@@ -1,45 +1,8 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './MobileOrientationNotice.css';
 
-function MobileOrientationNotice() {
+function MobileOrientationNotice({ onEnterLandscape }) {
   const { pathname } = useLocation();
-  const [requestState, setRequestState] = useState('idle');
-
-  const handleEnterLandscape = async () => {
-    const page = document.documentElement;
-    let enteredFullscreen = false;
-
-    setRequestState('requesting');
-
-    try {
-      if (!document.fullscreenElement) {
-        if (typeof page.requestFullscreen !== 'function') {
-          throw new Error('Fullscreen is not supported');
-        }
-
-        await page.requestFullscreen();
-        enteredFullscreen = true;
-      }
-
-      if (typeof window.screen.orientation?.lock !== 'function') {
-        throw new Error('Orientation lock is not supported');
-      }
-
-      await window.screen.orientation.lock('landscape');
-      setRequestState('idle');
-    } catch {
-      if (
-        enteredFullscreen
-        && document.fullscreenElement
-        && typeof document.exitFullscreen === 'function'
-      ) {
-        await document.exitFullscreen().catch(() => {});
-      }
-
-      setRequestState('idle');
-    }
-  };
 
   if (pathname.startsWith('/admin')) {
     return null;
@@ -50,8 +13,7 @@ function MobileOrientationNotice() {
       <button
         type="button"
         className="mobile-orientation-trigger"
-        onClick={handleEnterLandscape}
-        disabled={requestState === 'requesting'}
+        onClick={onEnterLandscape}
         aria-label="点击进入横屏"
       >
         <svg

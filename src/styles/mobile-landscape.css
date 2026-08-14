@@ -1,221 +1,272 @@
 /*
  * 公共页面的手机横屏适配集中在此。
- * 不改动原有桌面样式，也不影响后台布局。
+ * 横版样式由 MainLayout 的单一状态类控制，不影响后台布局。
  */
-@media (orientation: landscape) and (max-height: 600px) {
-  .main-layout {
-    min-height: 100dvh;
+.main-layout.mobile-landscape-view {
+  min-height: 100dvh;
+}
+
+.main-layout.mobile-landscape-view .navbar-container {
+  grid-template-columns: minmax(86px, 1fr) auto minmax(64px, 1fr);
+  gap: 6px;
+  min-height: 44px;
+  padding-right: max(12px, env(safe-area-inset-right));
+  padding-left: max(12px, env(safe-area-inset-left));
+}
+
+.main-layout.mobile-landscape-view .navbar-brand {
+  justify-self: start;
+}
+
+.main-layout.mobile-landscape-view .navbar-logo {
+  min-height: 40px;
+  padding: 0 8px;
+  font-size: 15px;
+}
+
+.main-layout.mobile-landscape-view .navbar-menu {
+  justify-content: center;
+  width: auto;
+  gap: 4px;
+  overflow: visible;
+}
+
+.main-layout.mobile-landscape-view .navbar-link,
+.main-layout.mobile-landscape-view .navbar-developer {
+  min-height: 34px;
+  padding: 0 clamp(9px, 1.7vw, 16px);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.main-layout.mobile-landscape-view .navbar-developer {
+  justify-self: end;
+  min-width: 0;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.main-layout.mobile-landscape-view .navbar-link.active::after,
+.main-layout.mobile-landscape-view .navbar-developer.active::after {
+  right: 10px;
+  bottom: -3px;
+  left: 10px;
+}
+
+.main-layout.mobile-landscape-view .main-content {
+  max-width: 1180px;
+  padding:
+    12px
+    max(14px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
+}
+
+.main-layout.mobile-landscape-view .home-page {
+  min-height: calc(100dvh - 68px);
+  padding: 8px;
+}
+
+.main-layout.mobile-landscape-view .home-avatar-container {
+  --avatar-size: min(64dvh, 42vw, 280px);
+}
+
+.main-layout.mobile-landscape-view .page-shell {
+  width: min(1120px, 100%);
+  min-height: 0;
+  margin: 8px auto;
+  padding: clamp(18px, 3.4vw, 30px);
+  border-radius: 18px;
+}
+
+.main-layout.mobile-landscape-view .page-header {
+  margin-bottom: 18px;
+}
+
+.main-layout.mobile-landscape-view .page-eyebrow {
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.main-layout.mobile-landscape-view .page-heading {
+  font-size: clamp(36px, 12dvh, 54px);
+}
+
+.main-layout.mobile-landscape-view .page-lede {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.main-layout.mobile-landscape-view .page-section-heading {
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.main-layout.mobile-landscape-view .page-section-heading h2 {
+  font-size: 20px;
+}
+
+.main-layout.mobile-landscape-view .page-section-heading span {
+  font-size: 12px;
+}
+
+.main-layout.mobile-landscape-view .page-board {
+  grid-template-columns: minmax(0, 1fr) clamp(190px, 29vw, 260px);
+  gap: clamp(16px, 3vw, 32px);
+}
+
+.main-layout.mobile-landscape-view .media-grid {
+  gap: 12px;
+}
+
+.main-layout.mobile-landscape-view .videos-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.main-layout.mobile-landscape-view .reviews-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.main-layout.mobile-landscape-view .travel-media-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.main-layout.mobile-landscape-view .travel-media-card:nth-child(1),
+.main-layout.mobile-landscape-view .travel-media-card:nth-child(4) {
+  grid-row: span 2;
+}
+
+.main-layout.mobile-landscape-view .travel-media-card:nth-child(1) .media-card-image,
+.main-layout.mobile-landscape-view .travel-media-card:nth-child(4) .media-card-image {
+  aspect-ratio: 1 / 1.62;
+}
+
+.main-layout.mobile-landscape-view .music-stack {
+  gap: 10px;
+}
+
+.main-layout.mobile-landscape-view .music-card {
+  gap: 10px;
+  min-height: 64px;
+  padding: 9px 10px;
+}
+
+.main-layout.mobile-landscape-view .music-card-cover {
+  width: 36px;
+  height: 36px;
+}
+
+.main-layout.mobile-landscape-view .music-card-duration {
+  display: none;
+}
+
+.main-layout.mobile-landscape-view .modal-overlay {
+  padding:
+    max(10px, env(safe-area-inset-top))
+    max(12px, env(safe-area-inset-right))
+    max(10px, env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+}
+
+.main-layout.mobile-landscape-view .modal-container {
+  max-width: 900px;
+  max-height: calc(100dvh - 20px);
+  border-radius: 16px;
+}
+
+.main-layout.mobile-landscape-view .modal-header {
+  min-height: 48px;
+  padding: 8px 14px;
+}
+
+.main-layout.mobile-landscape-view .modal-title {
+  font-size: 18px;
+}
+
+.main-layout.mobile-landscape-view .modal-close {
+  width: 36px;
+  height: 36px;
+}
+
+.main-layout.mobile-landscape-view .modal-body {
+  padding: 12px 14px 14px;
+}
+
+.main-layout.mobile-landscape-view .travel-modal-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.main-layout.mobile-landscape-view.mobile-landscape-compact .navbar-container {
+  grid-template-columns: auto 1fr auto;
+}
+
+.main-layout.mobile-landscape-view.mobile-landscape-compact .navbar-link {
+  padding: 0 8px;
+  font-size: 13px;
+}
+
+.main-layout.mobile-landscape-view.mobile-landscape-compact .page-board {
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 14px;
+}
+
+.main-layout.mobile-landscape-view.mobile-landscape-compact .videos-grid,
+.main-layout.mobile-landscape-view.mobile-landscape-compact .travel-media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/*
+ * 浏览器不允许系统横屏时，由页面自身稳定旋转为横版。
+ * 屏幕真正转为横屏后，这一层 transform 会自动失效。
+ */
+@media (orientation: portrait) and (max-width: 900px) {
+  .main-layout.mobile-landscape-forced {
+    position: fixed;
+    top: 0;
+    left: 100dvw;
+    width: 100dvh;
+    height: 100dvw;
+    min-height: 100dvw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transform: rotate(90deg);
+    transform-origin: top left;
   }
 
-  .main-layout .navbar-container {
-    grid-template-columns: minmax(86px, 1fr) auto minmax(64px, 1fr);
-    gap: 6px;
-    min-height: 44px;
-    padding-right: max(12px, env(safe-area-inset-right));
-    padding-left: max(12px, env(safe-area-inset-left));
-  }
-
-  .main-layout .navbar-brand {
-    justify-self: start;
-  }
-
-  .main-layout .navbar-logo {
-    min-height: 40px;
-    padding: 0 8px;
-    font-size: 15px;
-  }
-
-  .main-layout .navbar-menu {
-    justify-content: center;
-    width: auto;
-    gap: 4px;
-    overflow: visible;
-  }
-
-  .main-layout .navbar-link,
-  .main-layout .navbar-developer {
-    min-height: 34px;
-    padding: 0 clamp(9px, 1.7vw, 16px);
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  .main-layout .navbar-developer {
-    justify-self: end;
-    min-width: 0;
-    padding: 0 10px;
-    font-size: 12px;
-  }
-
-  .main-layout .navbar-link.active::after,
-  .main-layout .navbar-developer.active::after {
-    right: 10px;
-    bottom: -3px;
-    left: 10px;
-  }
-
-  .main-layout .main-content {
-    max-width: 1180px;
-    padding:
-      12px
-      max(14px, env(safe-area-inset-right))
-      max(16px, env(safe-area-inset-bottom))
-      max(14px, env(safe-area-inset-left));
-  }
-
-  .main-layout .home-page {
-    min-height: calc(100dvh - 68px);
-    padding: 8px;
-  }
-
-  .main-layout .home-avatar-container {
-    --avatar-size: min(64dvh, 42vw, 280px);
-  }
-
-  .main-layout .page-shell {
-    width: min(1120px, 100%);
-    min-height: 0;
-    margin: 8px auto;
-    padding: clamp(18px, 3.4vw, 30px);
-    border-radius: 18px;
-  }
-
-  .main-layout .page-header {
-    margin-bottom: 18px;
-  }
-
-  .main-layout .page-eyebrow {
-    margin-bottom: 2px;
-    font-size: 12px;
-  }
-
-  .main-layout .page-heading {
-    font-size: clamp(36px, 12dvh, 54px);
-  }
-
-  .main-layout .page-lede {
-    margin-top: 8px;
-    font-size: 14px;
-  }
-
-  .main-layout .page-section-heading {
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .main-layout .page-section-heading h2 {
-    font-size: 20px;
-  }
-
-  .main-layout .page-section-heading span {
-    font-size: 12px;
-  }
-
-  .main-layout .page-board {
-    grid-template-columns: minmax(0, 1fr) clamp(190px, 29vw, 260px);
-    gap: clamp(16px, 3vw, 32px);
-  }
-
-  .main-layout .media-grid {
-    gap: 12px;
-  }
-
-  .main-layout .videos-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .main-layout .reviews-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .main-layout .travel-media-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .main-layout .travel-media-card:nth-child(1),
-  .main-layout .travel-media-card:nth-child(4) {
-    grid-row: span 2;
-  }
-
-  .main-layout .travel-media-card:nth-child(1) .media-card-image,
-  .main-layout .travel-media-card:nth-child(4) .media-card-image {
-    aspect-ratio: 1 / 1.62;
-  }
-
-  .main-layout .music-stack {
-    gap: 10px;
-  }
-
-  .main-layout .music-card {
-    gap: 10px;
-    min-height: 64px;
-    padding: 9px 10px;
-  }
-
-  .main-layout .music-card-cover {
-    width: 36px;
-    height: 36px;
-  }
-
-  .main-layout .music-card-duration {
+  .main-layout.mobile-landscape-forced::-webkit-scrollbar {
     display: none;
   }
 
-  .main-layout .modal-overlay {
-    padding:
-      max(10px, env(safe-area-inset-top))
-      max(12px, env(safe-area-inset-right))
-      max(10px, env(safe-area-inset-bottom))
-      max(12px, env(safe-area-inset-left));
+  .main-layout.mobile-landscape-forced .navbar-link,
+  .main-layout.mobile-landscape-forced .navbar-developer {
+    padding-right: clamp(9px, 1.7dvh, 16px);
+    padding-left: clamp(9px, 1.7dvh, 16px);
   }
 
-  .main-layout .modal-container {
-    max-width: 900px;
-    max-height: calc(100dvh - 20px);
-    border-radius: 16px;
+  .main-layout.mobile-landscape-forced .home-page {
+    min-height: calc(100dvw - 68px);
   }
 
-  .main-layout .modal-header {
-    min-height: 48px;
-    padding: 8px 14px;
+  .main-layout.mobile-landscape-forced .home-avatar-container {
+    --avatar-size: min(64dvw, 42dvh, 280px);
   }
 
-  .main-layout .modal-title {
-    font-size: 18px;
+  .main-layout.mobile-landscape-forced .page-shell {
+    padding: clamp(18px, 3.4dvh, 30px);
   }
 
-  .main-layout .modal-close {
-    width: 36px;
-    height: 36px;
+  .main-layout.mobile-landscape-forced .page-heading {
+    font-size: clamp(36px, 12dvw, 54px);
   }
 
-  .main-layout .modal-body {
-    padding: 12px 14px 14px;
+  .main-layout.mobile-landscape-forced .page-board {
+    grid-template-columns: minmax(0, 1fr) clamp(190px, 29dvh, 260px);
+    gap: clamp(16px, 3dvh, 32px);
   }
 
-  .main-layout .travel-modal-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 600px) and (max-width: 700px) {
-  .main-layout .navbar-container {
-    grid-template-columns: auto 1fr auto;
-  }
-
-  .main-layout .navbar-link {
-    padding: 0 8px;
-    font-size: 13px;
-  }
-
-  .main-layout .page-board {
-    grid-template-columns: minmax(0, 1fr) 180px;
-    gap: 14px;
-  }
-
-  .main-layout .videos-grid,
-  .main-layout .travel-media-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .main-layout.mobile-landscape-forced .modal-container {
+    max-height: calc(100dvw - 20px);
   }
 }

@@ -121,6 +121,10 @@
 
 }
 
+.main-layout.mobile-landscape-forced .mobile-orientation-notice {
+  display: none;
+}
+
 @media (orientation: portrait) and (max-width: 900px) and (prefers-reduced-motion: no-preference) {
   .mobile-orientation-trigger {
     animation: orientationHint 1800ms ease-in-out infinite;
