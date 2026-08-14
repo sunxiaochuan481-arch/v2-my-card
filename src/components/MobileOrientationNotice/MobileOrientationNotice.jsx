@@ -40,7 +40,7 @@ function MobileOrientationNotice({ onEnterLandscape }) {
           <span />
         </span>
       </button>
-      <strong>请横过手机浏览</strong>
+      <strong>请点击横屏进行浏览</strong>
       <p className="mobile-orientation-description">
         横屏下会自动显示更接近电脑版的宽屏布局
       </p>

@@ -227,9 +227,11 @@
   width: var(--mobile-landscape-width);
   height: var(--mobile-landscape-height);
   min-height: var(--mobile-landscape-height);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
   scrollbar-width: none;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
   transform: rotate(90deg);
   transform-origin: top left;
 }
