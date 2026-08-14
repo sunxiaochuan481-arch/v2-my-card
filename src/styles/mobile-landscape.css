@@ -1,0 +1,221 @@
+/*
+ * 公共页面的手机横屏适配集中在此。
+ * 不改动原有桌面样式，也不影响后台布局。
+ */
+@media (orientation: landscape) and (max-height: 600px) {
+  .main-layout {
+    min-height: 100dvh;
+  }
+
+  .main-layout .navbar-container {
+    grid-template-columns: minmax(86px, 1fr) auto minmax(64px, 1fr);
+    gap: 6px;
+    min-height: 44px;
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-left: max(12px, env(safe-area-inset-left));
+  }
+
+  .main-layout .navbar-brand {
+    justify-self: start;
+  }
+
+  .main-layout .navbar-logo {
+    min-height: 40px;
+    padding: 0 8px;
+    font-size: 15px;
+  }
+
+  .main-layout .navbar-menu {
+    justify-content: center;
+    width: auto;
+    gap: 4px;
+    overflow: visible;
+  }
+
+  .main-layout .navbar-link,
+  .main-layout .navbar-developer {
+    min-height: 34px;
+    padding: 0 clamp(9px, 1.7vw, 16px);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .main-layout .navbar-developer {
+    justify-self: end;
+    min-width: 0;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .main-layout .navbar-link.active::after,
+  .main-layout .navbar-developer.active::after {
+    right: 10px;
+    bottom: -3px;
+    left: 10px;
+  }
+
+  .main-layout .main-content {
+    max-width: 1180px;
+    padding:
+      12px
+      max(14px, env(safe-area-inset-right))
+      max(16px, env(safe-area-inset-bottom))
+      max(14px, env(safe-area-inset-left));
+  }
+
+  .main-layout .home-page {
+    min-height: calc(100dvh - 68px);
+    padding: 8px;
+  }
+
+  .main-layout .home-avatar-container {
+    --avatar-size: min(64dvh, 42vw, 280px);
+  }
+
+  .main-layout .page-shell {
+    width: min(1120px, 100%);
+    min-height: 0;
+    margin: 8px auto;
+    padding: clamp(18px, 3.4vw, 30px);
+    border-radius: 18px;
+  }
+
+  .main-layout .page-header {
+    margin-bottom: 18px;
+  }
+
+  .main-layout .page-eyebrow {
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+  .main-layout .page-heading {
+    font-size: clamp(36px, 12dvh, 54px);
+  }
+
+  .main-layout .page-lede {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .main-layout .page-section-heading {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .main-layout .page-section-heading h2 {
+    font-size: 20px;
+  }
+
+  .main-layout .page-section-heading span {
+    font-size: 12px;
+  }
+
+  .main-layout .page-board {
+    grid-template-columns: minmax(0, 1fr) clamp(190px, 29vw, 260px);
+    gap: clamp(16px, 3vw, 32px);
+  }
+
+  .main-layout .media-grid {
+    gap: 12px;
+  }
+
+  .main-layout .videos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .main-layout .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .main-layout .travel-media-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .main-layout .travel-media-card:nth-child(1),
+  .main-layout .travel-media-card:nth-child(4) {
+    grid-row: span 2;
+  }
+
+  .main-layout .travel-media-card:nth-child(1) .media-card-image,
+  .main-layout .travel-media-card:nth-child(4) .media-card-image {
+    aspect-ratio: 1 / 1.62;
+  }
+
+  .main-layout .music-stack {
+    gap: 10px;
+  }
+
+  .main-layout .music-card {
+    gap: 10px;
+    min-height: 64px;
+    padding: 9px 10px;
+  }
+
+  .main-layout .music-card-cover {
+    width: 36px;
+    height: 36px;
+  }
+
+  .main-layout .music-card-duration {
+    display: none;
+  }
+
+  .main-layout .modal-overlay {
+    padding:
+      max(10px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(10px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+  }
+
+  .main-layout .modal-container {
+    max-width: 900px;
+    max-height: calc(100dvh - 20px);
+    border-radius: 16px;
+  }
+
+  .main-layout .modal-header {
+    min-height: 48px;
+    padding: 8px 14px;
+  }
+
+  .main-layout .modal-title {
+    font-size: 18px;
+  }
+
+  .main-layout .modal-close {
+    width: 36px;
+    height: 36px;
+  }
+
+  .main-layout .modal-body {
+    padding: 12px 14px 14px;
+  }
+
+  .main-layout .travel-modal-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 700px) {
+  .main-layout .navbar-container {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .main-layout .navbar-link {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .main-layout .page-board {
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 14px;
+  }
+
+  .main-layout .videos-grid,
+  .main-layout .travel-media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
