@@ -21,21 +21,77 @@
     text-align: center;
     background:
       radial-gradient(circle at 50% 38%, rgba(101, 151, 112, 0.2), transparent 34%),
-      rgba(5, 9, 10, 0.97);
+      #05090a;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
 
-  .mobile-orientation-icon {
+  .mobile-orientation-trigger {
     position: relative;
+    width: 132px;
+    height: 68px;
+    margin-bottom: 22px;
+    color: rgba(221, 239, 225, 0.58);
+  }
+
+  .mobile-orientation-icon {
+    position: absolute;
+    left: 52%;
+    bottom: 0;
     width: 76px;
     height: 44px;
-    margin-bottom: 26px;
     border: 2px solid rgba(221, 239, 225, 0.88);
     border-radius: 12px;
+    background: rgba(211, 235, 217, 0.025);
     box-shadow:
       0 0 0 1px rgba(143, 190, 155, 0.1),
       0 16px 42px rgba(0, 0, 0, 0.36);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
+    transform: translateX(-50%);
+  }
+
+  .mobile-orientation-trigger:hover,
+  .mobile-orientation-trigger:active {
+    color: rgba(221, 239, 225, 0.9);
+  }
+
+  .mobile-orientation-trigger:hover .mobile-orientation-icon,
+  .mobile-orientation-trigger:active .mobile-orientation-icon {
+    border-color: rgba(221, 239, 225, 1);
+    background: rgba(211, 235, 217, 0.075);
+  }
+
+  .mobile-orientation-trigger:disabled {
+    cursor: wait;
+    opacity: 0.62;
+  }
+
+  .mobile-orientation-cue {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .mobile-orientation-cue-line {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+  }
+
+  .mobile-orientation-cue-text {
+    fill: currentColor;
+    font-size: 9px;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    paint-order: stroke;
+    stroke: rgba(5, 9, 10, 0.96);
+    stroke-width: 3px;
   }
 
   .mobile-orientation-icon span {
@@ -55,17 +111,18 @@
     letter-spacing: 0.02em;
   }
 
-  .mobile-orientation-notice p {
+  .mobile-orientation-description {
     max-width: 320px;
     margin-top: 12px;
     color: var(--text-secondary);
     font-size: 14px;
     line-height: 1.7;
   }
+
 }
 
 @media (orientation: portrait) and (max-width: 900px) and (prefers-reduced-motion: no-preference) {
-  .mobile-orientation-icon {
+  .mobile-orientation-trigger {
     animation: orientationHint 1800ms ease-in-out infinite;
   }
 }
