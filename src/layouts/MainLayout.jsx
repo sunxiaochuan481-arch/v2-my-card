@@ -16,8 +16,9 @@ const getViewport = () => ({
 });
 
 function MainLayout() {
-  const [forceLandscape, setForceLandscape] = useState(false);
+  const [forcedLandscapeSize, setForcedLandscapeSize] = useState(null);
   const [viewport, setViewport] = useState(getViewport);
+  const forceLandscape = Boolean(forcedLandscapeSize);
 
   useEffect(() => {
     const updateViewport = () => {
@@ -35,15 +36,56 @@ function MainLayout() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!forceLandscape) return undefined;
+
+    let orientationTimer;
+    const releaseForcedLandscape = () => {
+      const orientationType = window.screen.orientation?.type || '';
+      const orientationAngle = Number(
+        window.screen.orientation?.angle ?? window.orientation ?? 0,
+      );
+      const physicallyLandscape = orientationType.startsWith('landscape')
+        || Math.abs(orientationAngle) % 180 === 90;
+
+      if (!physicallyLandscape) return;
+
+      window.clearTimeout(orientationTimer);
+      orientationTimer = window.setTimeout(() => {
+        setForcedLandscapeSize(null);
+        setViewport(getViewport());
+      }, 120);
+    };
+
+    window.addEventListener('orientationchange', releaseForcedLandscape);
+    window.screen.orientation?.addEventListener('change', releaseForcedLandscape);
+
+    return () => {
+      window.clearTimeout(orientationTimer);
+      window.removeEventListener('orientationchange', releaseForcedLandscape);
+      window.screen.orientation?.removeEventListener('change', releaseForcedLandscape);
+    };
+  }, [forceLandscape]);
+
   const touchDevice = navigator.maxTouchPoints > 0 || 'ontouchstart' in window;
   const phoneSizedScreen = Math.min(window.screen.width, window.screen.height) <= 900;
-  const portraitPhone = viewport.height >= viewport.width
-    && (viewport.width <= 900 || (touchDevice && phoneSizedScreen));
+  const portraitPhone = forceLandscape || (
+    viewport.height >= viewport.width
+    && (viewport.width <= 900 || (touchDevice && phoneSizedScreen))
+  );
   const naturalPhoneLandscape = viewport.width > viewport.height && viewport.height <= 600;
   const useLandscapeView = naturalPhoneLandscape || forceLandscape;
   const compactLandscape = Math.max(viewport.width, viewport.height) <= 700;
-  const landscapeWidth = Math.max(viewport.width, viewport.height);
-  const landscapeHeight = Math.min(viewport.width, viewport.height);
+  const landscapeWidth = forcedLandscapeSize?.width
+    || Math.max(viewport.width, viewport.height);
+  const landscapeHeight = forcedLandscapeSize?.height
+    || Math.min(viewport.width, viewport.height);
+  const enterForcedLandscape = () => {
+    setForcedLandscapeSize({
+      width: Math.max(viewport.width, viewport.height),
+      height: Math.min(viewport.width, viewport.height),
+    });
+  };
   const layoutClassName = [
     'main-layout',
     portraitPhone && 'mobile-portrait-view',
@@ -61,7 +103,7 @@ function MainLayout() {
       <div className={layoutClassName} style={layoutStyle}>
         <BackgroundGlowGroup />
         <DataRainAccent />
-        <MobileOrientationNotice onEnterLandscape={() => setForceLandscape(true)} />
+        <MobileOrientationNotice onEnterLandscape={enterForcedLandscape} />
         <Navbar />
         <main className="main-content">
           <Outlet />
