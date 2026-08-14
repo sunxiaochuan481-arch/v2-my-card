@@ -10,10 +10,33 @@ import '../styles/global.css';
 import '../styles/layout.css';
 import '../styles/mobile-landscape.css';
 
-const getViewport = () => ({
-  width: Math.round(window.visualViewport?.width || window.innerWidth),
-  height: Math.round(window.visualViewport?.height || window.innerHeight),
-});
+const getViewport = () => {
+  const documentElement = document.documentElement;
+
+  return {
+    width: Math.round(documentElement.clientWidth || window.innerWidth),
+    height: Math.round(Math.max(
+      documentElement.clientHeight,
+      window.innerHeight,
+      window.visualViewport?.height || 0,
+    )),
+  };
+};
+
+const getForcedLandscapeSize = (viewport) => {
+  const viewportShortSide = Math.min(viewport.width, viewport.height);
+  const viewportLongSide = Math.max(viewport.width, viewport.height);
+  const screenShortSide = Math.min(window.screen.width, window.screen.height);
+  const screenLongSide = Math.max(window.screen.width, window.screen.height);
+  const screenRatio = screenShortSide > 0
+    ? Math.min(Math.max(screenLongSide / screenShortSide, 1), 3)
+    : 1;
+
+  return {
+    width: Math.ceil(Math.max(viewportLongSide, viewportShortSide * screenRatio)),
+    height: Math.ceil(viewportShortSide),
+  };
+};
 
 function MainLayout() {
   const [forcedLandscapeSize, setForcedLandscapeSize] = useState(null);
@@ -81,10 +104,7 @@ function MainLayout() {
   const landscapeHeight = forcedLandscapeSize?.height
     || Math.min(viewport.width, viewport.height);
   const enterForcedLandscape = () => {
-    setForcedLandscapeSize({
-      width: Math.max(viewport.width, viewport.height),
-      height: Math.min(viewport.width, viewport.height),
-    });
+    setForcedLandscapeSize(getForcedLandscapeSize(viewport));
   };
   const layoutClassName = [
     'main-layout',
