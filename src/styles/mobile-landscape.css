@@ -220,53 +220,57 @@
  * 浏览器不允许系统横屏时，由页面自身稳定旋转为横版。
  * 屏幕真正转为横屏后，这一层 transform 会自动失效。
  */
-@media (orientation: portrait) and (max-width: 900px) {
-  .main-layout.mobile-landscape-forced {
-    position: fixed;
-    top: 0;
-    left: 100dvw;
-    width: 100dvh;
-    height: 100dvw;
-    min-height: 100dvw;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: none;
-    transform: rotate(90deg);
-    transform-origin: top left;
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced {
+  position: fixed;
+  top: 0;
+  left: var(--mobile-landscape-height);
+  width: var(--mobile-landscape-width);
+  height: var(--mobile-landscape-height);
+  min-height: var(--mobile-landscape-height);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
 
-  .main-layout.mobile-landscape-forced::-webkit-scrollbar {
-    display: none;
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced::-webkit-scrollbar {
+  display: none;
+}
 
-  .main-layout.mobile-landscape-forced .navbar-link,
-  .main-layout.mobile-landscape-forced .navbar-developer {
-    padding-right: clamp(9px, 1.7dvh, 16px);
-    padding-left: clamp(9px, 1.7dvh, 16px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .navbar-link,
+.main-layout.mobile-portrait-view.mobile-landscape-forced .navbar-developer {
+  padding-right: clamp(9px, 1.7dvh, 16px);
+  padding-left: clamp(9px, 1.7dvh, 16px);
+}
 
-  .main-layout.mobile-landscape-forced .home-page {
-    min-height: calc(100dvw - 68px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .home-page {
+  min-height: calc(var(--mobile-landscape-height) - 68px);
+}
 
-  .main-layout.mobile-landscape-forced .home-avatar-container {
-    --avatar-size: min(64dvw, 42dvh, 280px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .home-avatar-container {
+  --avatar-size: min(64vw, 42vh, 280px);
+  --avatar-size: min(64dvw, 42dvh, 280px);
+}
 
-  .main-layout.mobile-landscape-forced .page-shell {
-    padding: clamp(18px, 3.4dvh, 30px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .page-shell {
+  padding: clamp(18px, 3.4vh, 30px);
+  padding: clamp(18px, 3.4dvh, 30px);
+}
 
-  .main-layout.mobile-landscape-forced .page-heading {
-    font-size: clamp(36px, 12dvw, 54px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .page-heading {
+  font-size: clamp(36px, 12vw, 54px);
+  font-size: clamp(36px, 12dvw, 54px);
+}
 
-  .main-layout.mobile-landscape-forced .page-board {
-    grid-template-columns: minmax(0, 1fr) clamp(190px, 29dvh, 260px);
-    gap: clamp(16px, 3dvh, 32px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .page-board {
+  grid-template-columns: minmax(0, 1fr) clamp(190px, 29vh, 260px);
+  grid-template-columns: minmax(0, 1fr) clamp(190px, 29dvh, 260px);
+  gap: clamp(16px, 3vh, 32px);
+  gap: clamp(16px, 3dvh, 32px);
+}
 
-  .main-layout.mobile-landscape-forced .modal-container {
-    max-height: calc(100dvw - 20px);
-  }
+.main-layout.mobile-portrait-view.mobile-landscape-forced .modal-container {
+  max-height: calc(100vw - 20px);
+  max-height: calc(100dvw - 20px);
 }
